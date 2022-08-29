@@ -21,10 +21,10 @@ order by location,date
 
 -- Countries with highest infection rate compared to population
 
-select location,(population), max(total_cases) as HighestInfectionCount, max((total_cases/population))*100 as PercentInfected, max((cast(total_deaths as int)/total_cases))*100 as PercentDeaths
+select location,max(population), max(total_cases) as HighestInfectionCount, max((total_cases/population))*100 as PercentInfected, max((cast(total_deaths as int)/total_cases))*100 as PercentDeaths
 from coviddeaths
 --where location like 'india'
-group by location,population
+group by location
 order by 5 desc
 
 -- India's Death percentage
